@@ -2,13 +2,15 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
 
+
+
 export default function CartScreen() {
   return (
     <View style={styles.container}>
-      <Ionicons name="cart-outline" size={100} color={"white"} />
-      <Text style={styles.eemptyText}>Seu carrinho está vazio</Text>
+    <Ionicons name="cart-outline" size={100} color={"white"} />
+      <Text style={styles.emptyText}>Seu carrinho está vazio</Text>
     </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  eemptyText: {
+ emptyText: {
     color: 'white',
     fontSize: 18,
     marginTop: 20,
