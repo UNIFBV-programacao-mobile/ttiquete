@@ -6,10 +6,18 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 export default function TabLayout() {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
-      }}
-    >
+    screenOptions={{
+      tabBarActiveTintColor: '#ffd33d',
+      headerStyle: {
+        backgroundColor: '#2F2B64',
+      },
+      headerShadowVisible: false,
+      headerTintColor: '#fff',
+      tabBarStyle: {
+        backgroundColor: '#2F2B64',
+      },
+    }}
+  >
       <Tabs.Screen
         name="index"
         options={{
@@ -28,8 +36,8 @@ export default function TabLayout() {
           ),
         }}
       />
-  </Tabs>
-  );
+</Tabs>
+ );
 }
    
   
