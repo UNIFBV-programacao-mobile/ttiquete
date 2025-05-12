@@ -21,6 +21,7 @@ export default function Index(){
             <FormLogin/>
         </View>
     )
+    //
 }
 
 const styles = StyleSheet.create({
