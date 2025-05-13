@@ -1,0 +1,534 @@
+- table_proposta:
+    Control: DataTable@1.0.3
+    Variant: DataTable
+    Properties:
+      AlignInContainer: =AlignInContainer.Center
+      HeadingColor: =Color.White
+      HeadingFill: =ColorValue("#F21E2C")
+      HeadingSize: =12
+      Items: |-
+        =SortByColumns(
+            Filter(
+                cad_proposta,
+                n_proposta_inicial = varPropostaHistorico
+            ), "n_proposta", SortOrder.Descending 
+        )
+      LayoutMinHeight: =0
+      Size: =12
+      Width: =Parent.Width
+    Children:
+      - n_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          Properties:
+            FieldDisplayName: ="Nº Proposta"
+            FieldName: ="n_proposta"
+            Order: =2
+            Text: =ThisItem.n_proposta
+      - data_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Data Proposta"
+            FieldName: ="data_proposta"
+            Order: =3
+            Text: =ThisItem.data_proposta
+      - cliente_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Cliente"
+            FieldName: ="cliente"
+            Order: =4
+            Text: =ThisItem.cliente
+      - indice_reajuste_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Índice de reajuste"
+            FieldName: ="indice_reajuste"
+            Order: =11
+            Text: =ThisItem.indice_reajuste
+      - etapas_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Etapas da proposta"
+            FieldName: ="etapas_proposta"
+            Order: =8
+            Text: =ThisItem.etapas_proposta
+      - valor_total_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Valor total (R$)"
+            FieldName: ="valor_total_proposta"
+            Order: =15
+            Text: =ThisItem.valor_total_proposta
+      - valor_m2_etapa_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Valor m² por etapa"
+            FieldName: ="valor_m2_etapa"
+            Order: =16
+            Text: =ThisItem.valor_m2_etapa
+      - valor_m2_total_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Valor m² total (R$)"
+            FieldName: ="valor_m2_total"
+            Order: =17
+            Text: =ThisItem.valor_m2_total
+      - valor_hr_total_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Valor hr total (R$)"
+            FieldName: ="valor_hr_total"
+            Order: =20
+            Text: =ThisItem.valor_hr_total
+      - valor_hr_etapa_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            AutoWidth: =false
+            FieldDisplayName: ="Valor hr por etapa (R$)"
+            FieldName: ="valor_hr_etapa"
+            Order: =18
+            Text: =ThisItem.valor_hr_etapa
+            Width: =176
+      - impostos_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Impostos (R$)"
+            FieldName: ="impostos"
+            Order: =21
+            Text: =ThisItem.impostos
+      - custo_terceiros_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            AutoWidth: =false
+            FieldDisplayName: ="Custo de terceiros (R$)"
+            FieldName: ="custo_terceiros"
+            Order: =22
+            Text: =ThisItem.custo_terceiros
+            Width: =180
+      - despesas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Despesas (R$)"
+            FieldName: ="despesas"
+            Order: =24
+            Text: =ThisItem.despesas
+      - meta_lucro_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Meta de lucro (R$)"
+            FieldName: ="meta_lucro"
+            Order: =25
+            Text: =ThisItem.meta_lucro
+      - status_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Status da proposta"
+            FieldName: ="status_proposta"
+            Order: =9
+            Text: =ThisItem.status_proposta
+      - data_status_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Data de status"
+            FieldName: ="data_status_proposta"
+            Order: =10
+            Text: =ThisItem.data_status_proposta
+      - metro_quadrado_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="M²"
+            FieldName: ="metro_quadrado"
+            Order: =14
+            Text: =ThisItem.metro_quadrado
+      - n_proposta_inicial_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Nº proposta inicial"
+            FieldName: ="n_proposta_inicial"
+            Order: =26
+            Text: =ThisItem.n_proposta_inicial
+      - porcentagem_reajuste_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="% de reajuste"
+            FieldName: ="porcentagem_reajuste"
+            Order: =12
+            Text: =ThisItem.porcentagem_reajuste
+      - data_reajuste_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="Data de reajuste"
+            FieldName: ="data_reajuste"
+            Order: =13
+            Text: =ThisItem.data_reajuste
+      - apelido_proposta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          Properties:
+            FieldDisplayName: ="Apelido Projeto"
+            FieldName: ="apelido_proposta"
+            Order: =6
+            Text: =ThisItem.apelido_proposta
+      - area_coberta_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="area_coberta"
+            FieldName: ="area_coberta"
+            Order: =27
+            Text: =ThisItem.area_coberta
+      - area_externa_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="area_externa"
+            FieldName: ="area_externa"
+            Order: =28
+            Text: =ThisItem.area_externa
+      - area_tecnica_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="area_tecnica"
+            FieldName: ="area_tecnica"
+            Order: =29
+            Text: =ThisItem.area_tecnica
+      - area_total_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="area_total"
+            FieldName: ="area_total"
+            Order: =30
+            Text: =ThisItem.area_total
+      - bairro_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="bairro"
+            FieldName: ="bairro"
+            Order: =11
+            Text: =ThisItem.bairro
+      - cidade_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="cidade"
+            FieldName: ="cidade"
+            Order: =10
+            Text: =ThisItem.cidade
+      - complemento_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="complemento"
+            FieldName: ="complemento"
+            Order: =14
+            Text: =ThisItem.complemento
+      - complexidade_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="complexidade"
+            FieldName: ="complexidade"
+            Order: =19
+            Text: =ThisItem.complexidade
+      - contato_cliente_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="contato_cliente"
+            FieldName: ="contato_cliente"
+            Order: =7
+            Text: =ThisItem.contato_cliente
+      - email_cliente_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="email_cliente"
+            FieldName: ="email_cliente"
+            Order: =6
+            Text: =ThisItem.email_cliente
+      - endereco_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="endereco"
+            FieldName: ="endereco"
+            Order: =12
+            Text: =ThisItem.endereco
+      - estado_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="estado"
+            FieldName: ="estado"
+            Order: =9
+            Text: =ThisItem.estado
+      - fator_multiplicacao_horas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="fator_multiplicacao_horas"
+            FieldName: ="fator_multiplicacao_horas"
+            Order: =38
+            Text: =ThisItem.fator_multiplicacao_horas
+      - faturamento_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="faturamento"
+            FieldName: ="faturamento"
+            Order: =39
+            Text: =ThisItem.faturamento
+      - flag_aditivo_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="flag_aditivo"
+            FieldName: ="flag_aditivo"
+            Order: =3
+            Text: =ThisItem.flag_aditivo
+      - grupo_projeto_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="grupo_projeto"
+            FieldName: ="grupo_projeto"
+            Order: =17
+            Text: =ThisItem.grupo_projeto
+      - meta_horas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="meta_horas"
+            FieldName: ="meta_horas"
+            Order: =41
+            Text: =ThisItem.meta_horas
+      - n_contrato_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="n_contrato"
+            FieldName: ="n_contrato"
+            Order: =42
+            Text: =ThisItem.n_contrato
+      - n_endereco_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="n_endereco"
+            FieldName: ="n_endereco"
+            Order: =13
+            Text: =ThisItem.n_endereco
+      - n_projeto_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="n_projeto"
+            FieldName: ="n_projeto"
+            Order: =15
+            Text: =ThisItem.n_projeto
+      - nome_cliente_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="nome_cliente"
+            FieldName: ="nome_cliente"
+            Order: =5
+            Text: =ThisItem.nome_cliente
+      - nome_projeto_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="nome_projeto"
+            FieldName: ="nome_projeto"
+            Order: =16
+            Text: =ThisItem.nome_projeto
+      - percent_compl_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="percent_compl"
+            FieldName: ="percent_compl"
+            Order: =49
+            Text: =ThisItem.percent_compl
+      - prazo_estimado_etapas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="prazo_estimado_etapas"
+            FieldName: ="prazo_estimado_etapas"
+            Order: =50
+            Text: =ThisItem.prazo_estimado_etapas
+      - prazo_estimado_total_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="prazo_estimado_total"
+            FieldName: ="prazo_estimado_total"
+            Order: =51
+            Text: =ThisItem.prazo_estimado_total
+      - qtd_parcelas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="qtd_parcelas"
+            FieldName: ="qtd_parcelas"
+            Order: =52
+            Text: =ThisItem.qtd_parcelas
+      - razao_social_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="razao_social"
+            FieldName: ="razao_social"
+            Order: =53
+            Text: =ThisItem.razao_social
+      - reajuste_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="reajuste"
+            FieldName: ="reajuste"
+            Order: =54
+            Text: =ThisItem.reajuste
+      - segmento_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="segmento"
+            FieldName: ="segmento"
+            Order: =55
+            Text: =ThisItem.segmento
+      - status_projeto_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="status_projeto"
+            FieldName: ="status_projeto"
+            Order: =20
+            Text: =ThisItem.status_projeto
+      - tipo_projeto_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="tipo_projeto"
+            FieldName: ="tipo_projeto"
+            Order: =18
+            Text: =ThisItem.tipo_projeto
+      - unidade_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="unidade"
+            FieldName: ="unidade"
+            Order: =8
+            Text: =ThisItem.unidade
+      - valor_disciplinas_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Textual
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="valor_disciplinas"
+            FieldName: ="valor_disciplinas"
+            Order: =59
+            Text: =ThisItem.valor_disciplinas
+      - valor_m2_compl_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="valor_m2_compl"
+            FieldName: ="valor_m2_compl"
+            Order: =60
+            Text: =ThisItem.valor_m2_compl
+      - valor_raf_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="valor_raf"
+            FieldName: ="valor_raf"
+            Order: =61
+            Text: =ThisItem.valor_raf
+      - valor_total_disciplina_Coluna1:
+          Control: DataTableColumn@1.0.1
+          Variant: Number
+          IsLocked: true
+          Properties:
+            FieldDisplayName: ="valor_total_disciplina"
+            FieldName: ="valor_total_disciplina"
+            Order: =62
+            Text: =ThisItem.valor_total_disciplina
