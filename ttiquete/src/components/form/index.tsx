@@ -1,7 +1,7 @@
 import { Alert, View, Text, TextInput, TextInputProps, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { styles } from "./styles";
-import { useUsersDatabase } from "@/database/useUsersDatabase";
+import { useUsersDatabase } from "../../database/useUsersDatabase";
 import { router } from "expo-router";
 
 type Props = TextInputProps & { title: string };
