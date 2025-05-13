@@ -22,7 +22,7 @@ const CarroselEmbreve= [
   require('../../assets/images/peça8.png'),
   require('../../assets/images/peça9.png'),
 ]
-export default function Index() {
+export default function home() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
