@@ -4,13 +4,9 @@ import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
 
 
-import { FormRegister } from "../../components/form"
+import { FormLogin } from "../components/form"
 
 export default function Index(){
-
-    // function navLogin(){
-    //     router.navigate("/index")
-    // }
 
     return (
         <View style={styles.container}>
@@ -19,20 +15,19 @@ export default function Index(){
                 style={styles.background}
             />
             <Image 
-                source={require('../../assets/images/logo_ttiquete.png')}
+                source={require('../assets/images/logo_ttiquete.png')}
                 style={styles.image}
             />
-            <FormRegister 
-                // navLogin={navLogin}
-            />
+            <FormLogin/>
         </View>
     )
+    //
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-start",
+        justifyContent: "space-evenly",
         padding: 25,
         // gap: 12,
         backgroundColor: "#5d56c2"
@@ -50,7 +45,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         // top: 30,
         width: "50%", 
-        height: "15%",
+        height: "30%",
         resizeMode: "contain"
     }
 })
