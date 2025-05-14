@@ -4,7 +4,7 @@ import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
 
 
-import { FormRegister } from "@/components/form"
+import { FormRegister } from "../../components/form"
 
 export default function Index(){
 
@@ -19,7 +19,7 @@ export default function Index(){
                 style={styles.background}
             />
             <Image 
-                source={require('@/assets/images/logo_ttiquete.png')}
+                source={require('../../assets/images/logo_ttiquete.png')}
                 style={styles.image}
             />
             <FormRegister 

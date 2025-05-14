@@ -1,4 +1,4 @@
-import { SQLiteDatabase } from "expo-sqlite"
+import { SQLiteDatabase } from "npx expo install expo-sqlite"
 
 export async function initializeDatabase(database: SQLiteDatabase) {
     await database.execAsync(`
