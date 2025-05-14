@@ -29,7 +29,7 @@ export function FormLogin() {
 
         // Simulação de login (adicione aqui a lógica de autenticação)
         Alert.alert("Sucesso", "Login realizado!");
-        // router.push("/"); // Redireciona para a tela inicial
+        // router.push("/home"); // Redireciona para a tela inicial
     }
 
     return (
