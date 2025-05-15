@@ -18,7 +18,7 @@ export default function Index(){
                 style={styles.background}
             />
             <Image 
-                source={require('../assets/images/logo_ttiquete.png')}
+                source={require('../../assets/images/logo_ttiquete.png')}
                 style={styles.image}
             />
             <FormRegister 

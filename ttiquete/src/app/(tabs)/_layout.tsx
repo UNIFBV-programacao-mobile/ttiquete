@@ -1,15 +1,12 @@
 import { Tabs } from 'expo-router';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { LinearGradient } from "expo-linear-gradient"
-import { TouchableOpacity } from "react-native"
-import { router } from "expo-router"
-
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: '#ffffff',
         headerStyle: {
           backgroundColor: '#2F2B64',
