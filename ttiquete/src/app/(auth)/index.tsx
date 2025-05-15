@@ -3,12 +3,7 @@ import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-n
 import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
 
-<<<<<<<< HEAD:ttiquete/src/app/index.tsx
-
-import { FormLogin } from "../components/form"
-========
 import { FormLogin } from "../../components/form"
->>>>>>>> feature/login:ttiquete/src/app/(auth)/index.tsx
 
 export default function Index(){
 

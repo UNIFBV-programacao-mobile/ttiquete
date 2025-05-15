@@ -8,6 +8,7 @@ export default function RootLayout() {
     <SQLiteProvider databaseName="myDatabase.db" onInit={initializeDatabase}>
       <>
         <Stack>
+          <Stack.Screen name="(auth)/index" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>

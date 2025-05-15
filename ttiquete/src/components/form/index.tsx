@@ -29,7 +29,7 @@ export function FormLogin() {
 
         // Simulação de login (adicione aqui a lógica de autenticação)
         Alert.alert("Sucesso", "Login realizado!");
-        // router.push("/"); // Redireciona para a tela inicial
+        router.push("/(tabs)/home"); // Redireciona para a tela inicial
     }
 
     return (
@@ -53,7 +53,8 @@ export function FormLogin() {
         />
         <TouchableOpacity 
             style={styles.buttonResetPassword}
-            onPress={()=> router.push('/teste')}>
+            // onPress={()=> router.push('/teste')}
+        >
             <Text style={styles.buttonResetPasswordText}>Esqueceu a senha?</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -116,7 +117,7 @@ export function FormRegister() {
         try {
         const response = await usersDatabase.create(formData);
         Alert.alert("Usuário cadastrado com sucesso! ID: " + response.insertedRowId);
-        router.push("/");
+        router.push("/(auth)");
         } catch (error) {
         console.log(error);
         }
