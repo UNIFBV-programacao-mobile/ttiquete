@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, TextInput, Dimensions } from 'react-native';
 import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from "expo-linear-gradient"
 
 const avatar = require("../../assets/images/Avatar.png");
 const Tela = Dimensions.get('window').width;
@@ -25,6 +26,10 @@ const CarroselEmbreve= [
 export default function home() {
   return (
     <SafeAreaView style={styles.container}>
+      <LinearGradient
+          colors={["#35306d", 'transparent']}
+          style={styles.background}
+      />
       <View style={styles.header}>
         <TextInput
           style={styles.searchInput}
@@ -66,18 +71,20 @@ export default function home() {
         </ScrollView>
       </View>
     
-    
-    
-    
-    
-    
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  background:{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: "100%",
+    },
   container: {
-    backgroundColor: '#2F2B64',
+    backgroundColor: "#5d56c2"
   },
   text: {
     color: '#fff',

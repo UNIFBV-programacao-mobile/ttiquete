@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-n
 import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
 
-
 import { FormLogin } from "../../components/form"
 
 export default function Index(){

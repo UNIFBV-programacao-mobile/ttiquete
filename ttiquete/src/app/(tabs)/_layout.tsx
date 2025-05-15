@@ -1,23 +1,26 @@
 import { Tabs } from 'expo-router';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { LinearGradient } from "expo-linear-gradient"
+import { TouchableOpacity } from "react-native"
+import { router } from "expo-router"
 
 
 export default function TabLayout() {
   return (
     <Tabs
-    screenOptions={{
-      tabBarActiveTintColor: '#ffffff',
-      headerStyle: {
-        backgroundColor: '#2F2B64',
-      },
-      headerShadowVisible: false,
-      headerTintColor: '#fff',
-      tabBarStyle: {
-        backgroundColor: '#2F2B64',
-      },
-    }}
-  >
+      screenOptions={{
+        tabBarActiveTintColor: '#ffffff',
+        headerStyle: {
+          backgroundColor: '#2F2B64',
+        },
+        headerShadowVisible: false,
+        headerTintColor: '#fff',
+        tabBarStyle: {
+          backgroundColor: '#2F2B64',
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -27,6 +30,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      
       <Tabs.Screen
         name="cart"
         options={{
@@ -36,10 +40,18 @@ export default function TabLayout() {
           ),
         }}
       />
+{/* 
+      <Tabs.Screen
+        name="logout"
+        options={{
+          title: "Logout",
+          tabBarIcon: ({ color }) => (
+            <TouchableOpacity onPress={() => router.replace("/(auth)")}>
+              <Ionicons name="log-out-outline" color={color} size={24} />
+            </TouchableOpacity>
+          ),
+        }}
+      /> */}
 </Tabs>
  );
 }
-   
-  
-
-  
