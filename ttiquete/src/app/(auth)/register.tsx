@@ -2,7 +2,6 @@ import { useState } from "react"
 import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-native"
 import { router } from "expo-router"
 import { LinearGradient } from "expo-linear-gradient"
-
 import { FormRegister } from "../../components/form"
 
 export default function Index(){
@@ -12,6 +11,7 @@ export default function Index(){
     // }
 
     return (
+        
         <View style={styles.container}>
             <LinearGradient
                 colors={["#35306d", 'transparent']}
@@ -25,6 +25,7 @@ export default function Index(){
                 // navLogin={navLogin}
             />
         </View>
+        
     )
 }
 

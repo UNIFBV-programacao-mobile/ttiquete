@@ -131,11 +131,17 @@ export function FormRegister() {
         setNumPage((prev) => Math.max(prev - 1, 1));
     }
 
+    function loginPage() {
+        router.push("/(auth)")
+    }
+
     function renderButtons() {
         return (
         <View style={styles.buttonContainer}>
             {numPage === 1 && (
-            <View></View>
+            <TouchableOpacity style={styles.buttonPages} onPress={loginPage}>
+                <Text>Voltar</Text>
+            </TouchableOpacity>
             )}
             {numPage > 1 && (
             <TouchableOpacity style={styles.buttonPages} onPress={prevPage}>
