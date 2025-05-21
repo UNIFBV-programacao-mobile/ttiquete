@@ -1,54 +1,50 @@
-import { Tabs } from 'expo-router';
+import { Tabs } from "expo-router";
 
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#ffffff',
+        tabBarActiveTintColor: "#ffffff",
         headerStyle: {
-          backgroundColor: '#2F2B64',
+          backgroundColor: "#2F2B64",
         },
         headerShadowVisible: false,
-        headerTintColor: '#fff',
+        headerTintColor: "#fff",
         tabBarStyle: {
-          backgroundColor: '#2F2B64',
+          backgroundColor: "#2F2B64",
         },
       }}
     >
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
+            <Ionicons
+              name={focused ? "home-sharp" : "home-outline"}
+              color={color}
+              size={24}
+            />
           ),
         }}
       />
-      
+
       <Tabs.Screen
         name="cart"
         options={{
-          title: 'Cart',
+          title: "Cart",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'cart-sharp' : 'cart-outline'} color={color} size={24}/>
+            <Ionicons
+              name={focused ? "cart-sharp" : "cart-outline"}
+              color={color}
+              size={24}
+            />
           ),
         }}
       />
-{/* 
-      <Tabs.Screen
-        name="logout"
-        options={{
-          title: "Logout",
-          tabBarIcon: ({ color }) => (
-            <TouchableOpacity onPress={() => router.replace("/(auth)")}>
-              <Ionicons name="log-out-outline" color={color} size={24} />
-            </TouchableOpacity>
-          ),
-        }}
-      /> */}
-</Tabs>
- );
+    </Tabs>
+  );
 }
