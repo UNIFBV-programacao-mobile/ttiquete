@@ -11,6 +11,7 @@ import { Image } from "expo-image";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import React, { useState, useMemo } from "react";
 
 import { pecas } from "../../database/data";
 
@@ -28,6 +29,8 @@ const CarroselEmalta = pecas.filter((peca) => peca.status === "Em alta");
 const CarroselEmbreve = pecas.filter((peca) => peca.status === "Em breve");
 
 export default function Home() {
+	const [searchText, setSearchText] = useState("");
+	
 	function handleDetails( peca:any ) {
 		router.push({
 			pathname: "/(details)/details",
@@ -47,11 +50,14 @@ export default function Home() {
 					style={styles.searchInput}
 					placeholder='Pesquisar'
 					placeholderTextColor='#888'
+					value={searchText}
+					onChangeText={setSearchText}
 				/>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={() => router.push('/(auth)/login')}>
 					<Image source={avatar} style={styles.avatar} />
 				</TouchableOpacity>
 			</View>
+			
 
 			<ScrollView horizontal style={styles.carroselContainer}>
 				{imagensCarrossel.map((caminhoDaImagem, index) => (
@@ -104,6 +110,8 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		backgroundColor: "#2F2B64",
+		position: 'relative',
+		flex: 1,
 	},
 	text: {
 		color: "#fff",
@@ -151,6 +159,7 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		paddingHorizontal: 12,
 		marginBottom: 8,
+		marginTop: 10,
 	},
 	conteinerEmalta: {
 		marginTop: 10,
@@ -165,6 +174,7 @@ const styles = StyleSheet.create({
 	},
 	secaoEmBreve: {
 		marginTop: 0,
+		flex: 1,
 	},
 	tituloEmbreve: {
 		color: "#fff",
@@ -187,4 +197,29 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		paddingHorizontal: 12,
 	},
+	 overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(255,255,255,0.8)",
+    zIndex: 10,
+    paddingHorizontal: 12,
+    paddingTop: 80,
+  },
+  resultItem: {
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderColor: "#ddd",
+  },
+  resultText: {
+    fontSize: 16,
+    color: "#000",
+  },
+  noResults: {
+    marginTop: 20,
+    textAlign: "center",
+    color: "#888",
+  },
 });
