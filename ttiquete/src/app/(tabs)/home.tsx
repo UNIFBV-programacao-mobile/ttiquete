@@ -7,12 +7,14 @@ import {
 	TextInput,
 	Dimensions,
 } from "react-native";
+import { useState } from "react";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { pecas } from "../../database/data";
+import { Menu } from "../../components/menu"
 
 const avatar = require("../../assets/images/Avatar.png");
 const Tela = Dimensions.get("window").width;
@@ -27,7 +29,10 @@ const imagensCarrossel = [
 const CarroselEmalta = pecas.filter((peca) => peca.status === "Em alta");
 const CarroselEmbreve = pecas.filter((peca) => peca.status === "Em breve");
 
+
 export default function Home() {
+	const [isOn, setIsOn] = useState(false) // Por default é falso
+	
 	function handleDetails( peca:any ) {
 		router.push({
 			pathname: "/(details)/details",
@@ -35,75 +40,99 @@ export default function Home() {
 		})
 	}
 
+	function toggle(data: boolean) {
+		setIsOn((prevState) => !prevState) // Chama o valor default de prevState, e muda ele
+		console.log(data)
+	} 
+
 	return (
-		<SafeAreaView style={styles.container}>
+		<View style={ styles.containerExterno }>
 			<LinearGradient
 				colors={["#35306d", "transparent"]}
 				style={styles.background}
 			/>
-
-			<View style={styles.header}>
-				<TextInput
-					style={styles.searchInput}
-					placeholder='Pesquisar'
-					placeholderTextColor='#888'
+			<SafeAreaView style={styles.container}>
+				<LinearGradient
+					colors={["#35306d", "transparent"]}
+					style={styles.background}
 				/>
-				<TouchableOpacity>
-					<Image source={avatar} style={styles.avatar} />
-				</TouchableOpacity>
-			</View>
 
-			<ScrollView horizontal style={styles.carroselContainer}>
-				{imagensCarrossel.map((caminhoDaImagem, index) => (
-					<TouchableOpacity key={index} style={styles.touchableOpacityStyle}>
-						<Image source={caminhoDaImagem} style={styles.imagemCarrossel} />
+				<View style={styles.header}>
+					<TextInput
+						style={styles.searchInput}
+						placeholder='Pesquisar'
+						placeholderTextColor='#888'
+					/>
+					<TouchableOpacity
+						onPress={() => toggle(isOn)}
+					>
+						<Image source={avatar} style={styles.avatar} />
 					</TouchableOpacity>
-				))}
-			</ScrollView>
+				</View>
 
-			<View style={styles.secaoEmAlta}>
-				<Text style={styles.tituloEmAlta}>Em Alta</Text>
-				<ScrollView horizontal style={styles.conteinerEmalta}>
-					{CarroselEmalta.map((peca) => (
-						<TouchableOpacity
-							key={peca.id}
+				<ScrollView horizontal style={styles.carroselContainer}>
+					{imagensCarrossel.map((caminhoDaImagem, index) => (
+						<TouchableOpacity 
+							key={index} 
 							style={styles.touchableOpacityStyle}
-							onPress={() => handleDetails(peca)}
 						>
-							<Image source={peca.imagem} style={styles.Emaltacarrosel} />
+							<Image source={caminhoDaImagem} style={styles.imagemCarrossel} />
 						</TouchableOpacity>
 					))}
 				</ScrollView>
-			</View>
 
-			<View style={styles.secaoEmBreve}>
-				<Text style={styles.tituloEmbreve}>Em Breve</Text>
-				<ScrollView horizontal style={styles.conteinerEmBreve}>
-					{CarroselEmbreve.map((peca) => (
-						<TouchableOpacity
-							key={peca.id}
-							style={styles.touchableOpacityStyle}
-							onPress={() => handleDetails(peca)}
-						>
-							<Image source={peca.imagem} style={styles.Embrevecarrosel} />
-						</TouchableOpacity>
-					))}
-				</ScrollView>
-			</View>
-		</SafeAreaView>
+				<View style={styles.secaoEmAlta}>
+					<Text style={styles.tituloEmAlta}>Em Alta</Text>
+					<ScrollView horizontal style={styles.conteinerEmalta}>
+						{CarroselEmalta.map((peca) => (
+							<TouchableOpacity
+								key={peca.id}
+								style={styles.touchableOpacityStyle}
+								onPress={() => handleDetails(peca)}
+							>
+								<Image source={peca.imagem} style={styles.Emaltacarrosel} />
+							</TouchableOpacity>
+						))}
+					</ScrollView>
+				</View>
+
+				<View style={styles.secaoEmBreve}>
+					<Text style={styles.tituloEmbreve}>Em Breve</Text>
+					<ScrollView horizontal style={styles.conteinerEmBreve}>
+						{CarroselEmbreve.map((peca) => (
+							<TouchableOpacity
+								key={peca.id}
+								style={styles.touchableOpacityStyle}
+								onPress={() => handleDetails(peca)}
+							>
+								<Image source={peca.imagem} style={styles.Embrevecarrosel} />
+							</TouchableOpacity>
+						))}
+					</ScrollView>
+				</View>
+			</SafeAreaView>
+			{isOn && <Menu/>}
+		</View>
 	);
 }
 
 const styles = StyleSheet.create({
+	containerExterno: {
+		flex:1,
+		flexDirection: "row",
+		backgroundColor: "#5d56c2",
+	},
+	container: {
+		backgroundColor: "#5d56c2",
+		flex:1,
+		// position: "absolute"
+	},
 	background: {
 		position: "absolute",
 		left: 0,
 		right: 0,
 		top: 0,
 		height: "100%",
-	},
-	container: {
-		backgroundColor: "#5d56c2",
 	},
 	text: {
 		color: "#fff",

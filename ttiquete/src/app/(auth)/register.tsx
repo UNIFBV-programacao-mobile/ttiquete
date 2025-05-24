@@ -225,8 +225,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     padding: 25,
-    gap: 15,
-    height: "50%",
     backgroundColor: "#5d56c2",
   },
 
@@ -240,19 +238,13 @@ const styles = StyleSheet.create({
 
   image: {
     alignSelf: "center",
-    // top: 30,
     width: "50%",
     height: "15%",
     resizeMode: "contain",
   },
 
-  container_input: {
-    gap: 6,
-  },
-
   containerPages: {
     justifyContent: "center",
-    gap: 6,
   },
 
   input: {
