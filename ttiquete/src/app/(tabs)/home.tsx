@@ -57,6 +57,17 @@ export default function Home() {
 					<Image source={avatar} style={styles.avatar} />
 				</TouchableOpacity>
 			</View>
+			<View style={styles.suggestionsContainer}>
+				{filteredPecas.length ? (
+					filteredPecas.map((peca) => (
+						<TouchableOpacity key={peca.id}
+						style={styles.suggestionItem}
+						onPress={() => handleDetails(peca)}
+						>
+							<Text style={styles.suggestionText}>{peca.id}</Text>
+						</TouchableOpacity>
+				)} 
+			</View>
 			
 
 			<ScrollView horizontal style={styles.carroselContainer}>
@@ -197,28 +208,27 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		paddingHorizontal: 12,
 	},
-	 overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(255,255,255,0.8)",
-    zIndex: 10,
-    paddingHorizontal: 12,
-    paddingTop: 80,
+	suggestionsContainer: {
+    backgroundColor: "#fff",
+    marginHorizontal: 12,
+    borderRadius: 8,
+    maxHeight: 200,        // controla altura
+    elevation: 4,          // sombra no Android
+    shadowColor: "#000",   // sombra iOS
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
-  resultItem: {
-    paddingVertical: 12,
+  suggestionItem: {
+    padding: 12,
     borderBottomWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "#eee",
   },
-  resultText: {
+  suggestionText: {
     fontSize: 16,
     color: "#000",
   },
   noResults: {
-    marginTop: 20,
+    padding: 12,
     textAlign: "center",
     color: "#888",
   },
