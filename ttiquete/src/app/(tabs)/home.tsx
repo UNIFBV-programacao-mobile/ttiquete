@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
+       <LinearGradient
         colors={["#35306d", "transparent"]}
         style={styles.background}
       />
@@ -110,7 +110,7 @@ export default function Home() {
             </View>
           )}
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("/(auth)/login") }>
           <Image source={avatar} style={styles.avatar} />
         </TouchableOpacity>
       </View>
@@ -165,8 +165,9 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   container: {
-    backgroundColor: "#2F2B64",
     flex: 1,
+		justifyContent: "space-evenly",
+		backgroundColor: "#5d56c2",
   },
   text: {
     color: "#fff",
@@ -174,7 +175,6 @@ const styles = StyleSheet.create({
   avatar: {
     width: 40,
     height: 40,
-    borderRadius: 20,
   },
   header: {
     flexDirection: "row",

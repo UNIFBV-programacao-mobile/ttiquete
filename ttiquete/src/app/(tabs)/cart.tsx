@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { LinearGradient } from "expo-linear-gradient";
+
 
 const CartScreen = () => {
   const router = useRouter();
@@ -32,6 +34,10 @@ const CartScreen = () => {
 
   return (
     <View style={styles.container}>
+      <LinearGradient
+              colors={["#35306d", "transparent"]}
+              style={styles.background}
+            />
       <Text style={styles.title}>Carrinho</Text>
 
       {carrinhoVazio ? (
@@ -67,7 +73,7 @@ export default CartScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2F2B64',
+    backgroundColor: '#5d56c2',
     alignItems: 'center',
     paddingTop: 80,
   },
@@ -128,5 +134,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
+  },
+
+  background: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    height: "100%",
   },
 });
